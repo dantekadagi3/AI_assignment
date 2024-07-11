@@ -60,27 +60,25 @@ console.log(graph.dfs("A")); // Output: [ 'A', 'B', 'D', 'E', 'C', 'F' ]*/
 
 const graph=new Graph();
 
-graph.addVertex("S");
 graph.addVertex("A");
 graph.addVertex("B");
 graph.addVertex("C");
 graph.addVertex("D");
+graph.addVertex("G");
 graph.addVertex("I");
 graph.addVertex("J");
 graph.addVertex("E");
 graph.addVertex("F");
-graph.addVertex("G");
 graph.addVertex("H");
 
-graph.addEdge("S", "A");
-graph.addEdge("S", "B");
+graph.addEdge("A", "B");
 graph.addEdge("A", "C");
-graph.addEdge("A", "D");
-graph.addEdge("B", "I");
-graph.addEdge("B", "J");
-graph.addEdge("C", "E");
+graph.addEdge("B", "D");
+graph.addEdge("B", "E");
 graph.addEdge("C", "F");
-graph.addEdge("D", "G");
-graph.addEdge("I", "H");
+graph.addEdge("C", "G");
+graph.addEdge("E", "H");
+graph.addEdge("E", "I");
 
-console.log(graph.dfs("S"));
+
+console.log(graph.dfs("A"));

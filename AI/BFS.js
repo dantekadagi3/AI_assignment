@@ -8,7 +8,7 @@ class Graph {
             this.adjacencyList[vertex] = [];
         }
     }
-//defining the edges
+//defining the edges-making the connection
     addEdge(vertex1, vertex2) {
         this.adjacencyList[vertex1].push(vertex2);
         this.adjacencyList[vertex2].push(vertex1);
@@ -17,13 +17,15 @@ class Graph {
 
     bfs(start) {
         const queue = [start];
-        const result = [];
+        const result = [];//keep track of the visited vertices
         const visited = {};
         visited[start] = true;
 
         while (queue.length) {
             const currentVertex = queue.shift();
             result.push(currentVertex);
+
+            //looping through the list  to check whether each neighbour has been visited
 
             this.adjacencyList[currentVertex].forEach(neighbor => {
                 if (!visited[neighbor]) {
@@ -58,21 +60,23 @@ console.log(graph.bfs("A")); */
 
 const graph=new Graph()
 
-graph.addVertex("S");
 graph.addVertex("A");
 graph.addVertex("B");
 graph.addVertex("C");
 graph.addVertex("D");
 graph.addVertex("G");
+graph.addVertex("I");
+graph.addVertex("J");
+graph.addVertex("E");
+graph.addVertex("F");
+graph.addVertex("H");
 
-
-graph.addEdge("S","A");
-graph.addEdge("S","B");
-graph.addEdge("S","C");
-graph.addEdge("A","D");
-graph.addEdge("B","D");
-graph.addEdge("B","G");
-graph.addEdge("C","G");
-graph.addEdge("D","G");
-
-console.log(graph.bfs("S"));
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("B", "D");
+graph.addEdge("B", "E");
+graph.addEdge("C", "F");
+graph.addEdge("C", "G");
+graph.addEdge("E", "H");
+graph.addEdge("E", "I");
+console.log(graph.bfs("A"));
